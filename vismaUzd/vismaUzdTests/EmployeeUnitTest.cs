@@ -3,7 +3,7 @@
 namespace vismaUzdTests
 {
     [TestClass]
-    public class UnitTest1
+    public class EmployeeUnitTest
     {
         [TestMethod]
         public void TestMethod1()
