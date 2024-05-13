@@ -51,6 +51,7 @@ namespace vismaUzd.Controllers
             return employees;
         }
 
+        //https://localhost:44392/api/Employee/values/5ea5de1d-33a2-4dda-9989-dd8040f9f0d1
         // GET api/values/5
         [Route("api/Employee/Values/{userid:guid}")]
         [HttpGet]
