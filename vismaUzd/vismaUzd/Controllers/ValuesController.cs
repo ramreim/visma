@@ -90,9 +90,9 @@ namespace vismaUzd.Controllers
             return employees;
         }
 
-        //https://localhost:44392/api/Employee/Values/2280385d-2fb4-4e62-828c-08c2f3ce865f
+        //https://localhost:44392/api/Employee/Boss/2280385d-2fb4-4e62-828c-08c2f3ce865f
         // GET api/values/5
-        [Route("api/Employee/Values/Boss/{userid:guid}")]
+        [Route("api/Employee/Boss/{userid:guid}")]
         [HttpGet]
         public List<Employee> GetByBossId(Guid userid)
         {

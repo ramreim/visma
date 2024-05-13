@@ -87,3 +87,5 @@ C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.csproj.CoreCompileInputs.cach
 C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.csproj.CopyComplete
 C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.dll
 C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.pdb
+C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.Migrations.CreateEmp.resources
+C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.csproj.GenerateResource.cache
