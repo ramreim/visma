@@ -51,6 +51,8 @@ C:\Temp\visma\vismaUzd\vismaUzd\bin\roslyn\vbc.rsp
 C:\Temp\visma\vismaUzd\vismaUzd\bin\roslyn\VBCSCompiler.exe
 C:\Temp\visma\vismaUzd\vismaUzd\bin\roslyn\VBCSCompiler.exe.config
 C:\Temp\visma\vismaUzd\vismaUzd\bin\Antlr3.Runtime.dll
+C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.dll
+C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.SqlServer.dll
 C:\Temp\visma\vismaUzd\vismaUzd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Temp\visma\vismaUzd\vismaUzd\bin\Microsoft.Web.Infrastructure.dll
 C:\Temp\visma\vismaUzd\vismaUzd\bin\Newtonsoft.Json.dll
@@ -65,6 +67,8 @@ C:\Temp\visma\vismaUzd\vismaUzd\bin\System.Web.WebPages.Deployment.dll
 C:\Temp\visma\vismaUzd\vismaUzd\bin\System.Web.WebPages.dll
 C:\Temp\visma\vismaUzd\vismaUzd\bin\System.Web.WebPages.Razor.dll
 C:\Temp\visma\vismaUzd\vismaUzd\bin\WebGrease.dll
+C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.xml
+C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.SqlServer.xml
 C:\Temp\visma\vismaUzd\vismaUzd\bin\Newtonsoft.Json.xml
 C:\Temp\visma\vismaUzd\vismaUzd\bin\System.Net.Http.Formatting.xml
 C:\Temp\visma\vismaUzd\vismaUzd\bin\System.Web.Helpers.xml
@@ -83,7 +87,3 @@ C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.csproj.CoreCompileInputs.cach
 C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.csproj.CopyComplete
 C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.dll
 C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.pdb
-C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.dll
-C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.SqlServer.dll
-C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.xml
-C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.SqlServer.xml
