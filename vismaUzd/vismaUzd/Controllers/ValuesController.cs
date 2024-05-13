@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Globalization;
 using System.Linq;
 using System.Web.Http;
 
@@ -162,6 +163,39 @@ namespace vismaUzd.Controllers
                 LoggingException.Log(ex.Message);
             }
         }
+
+
+        //https://localhost:44371/api/Employee/Values/ByNameStartDateEndDate?name=Ramunas&startDate=2020-10-05&endDate=2025-10-20
+        [Route("api/People/Employee/ByNameStartDateEndDate")]
+        [HttpGet]
+        public List<Employee> GetByNameStartDateEndDate(string name, string startDate, string endDate)
+        {
+            var employees = new List<Employee>();
+
+            var con = new BlogDbContext();
+
+            try
+            {
+                var start = DateTime.Parse(startDate, new CultureInfo("lt-LT"));
+
+                var end = DateTime.Parse(endDate, new CultureInfo("lt-LT"));
+
+                employees = con.Employees.Where(x => x.FirstName == name && x.EmploymentDate > start && x.EmploymentDate < end).ToList();
+
+                if (employees.Count == 0)
+                    throw new Exception("Employee not found");
+            }
+
+            catch (Exception ex)
+            {
+                LoggingException.Log(ex.Message);
+            }
+
+            return employees;
+        }
+
+
+
 
         // DELETE api/values/5
         public void Delete(int id)
