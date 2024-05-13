@@ -52,9 +52,26 @@ namespace vismaUzd.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
+        [Route("api/Employee/Values/{userid:guid}")]
+        [HttpGet]
+        public List<Employee> Get(Guid userid)
         {
-            return "value";
+            BlogDbContext con = new BlogDbContext();
+
+            var employees = con.Employees.Where(x => x.Id == userid).ToList();
+
+            try
+            {
+                if (employees.Count == 0)
+                    throw new Exception("Employee by Id not found");
+            }
+
+            catch (Exception ex)
+            {
+                LoggingException.Log(ex.Message);
+            }
+
+            return employees;
         }
 
         // POST api/values
