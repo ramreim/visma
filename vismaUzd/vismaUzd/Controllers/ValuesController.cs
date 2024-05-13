@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web.Http;
 
@@ -123,9 +124,18 @@ namespace vismaUzd.Controllers
                 LoggingException.Log(ex.Message);
             }
         }
+
         // PUT api/values/5
-        public void Put(int id, [FromBody] string value)
+        //[Route("api/People/Values/{userid:int}")]
+        [Route("api/Employee/Values")]
+        [HttpPut]
+        public void Put([FromBody] Employee e)
         {
+            BlogDbContext con = new BlogDbContext();
+
+            con.Employees.AddOrUpdate(e);
+
+            con.SaveChanges();
         }
 
         // DELETE api/values/5
