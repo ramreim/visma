@@ -75,6 +75,30 @@ namespace vismaUzd.Controllers
             return employees;
         }
 
+        //https://localhost:44371/api/Employee/Values/2280385d-2fb4-4e62-828c-08c2f3ce865f
+        // GET api/values/5
+        [Route("api/Employee/Values/Boss/{userid:guid}")]
+        [HttpGet]
+        public List<Employee> GetByBossId(Guid userid)
+        {
+            BlogDbContext con = new BlogDbContext();
+
+            var employees = con.Employees.Where(x => x.BossId == userid).ToList();
+
+            try
+            {
+                if (employees.Count == 0)
+                    throw new Exception("Employee by Boss Id not found");
+            }
+
+            catch (Exception ex)
+            {
+                LoggingException.Log(ex.Message);
+            }
+
+            return employees;
+        }
+
         // POST api/values
         public void Post([FromBody] Employee e)
         {
