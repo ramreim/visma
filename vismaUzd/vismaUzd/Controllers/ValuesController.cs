@@ -14,6 +14,19 @@ namespace vismaUzd.Controllers
         public DbSet<Employee> Employees { get; set; }
     }
 
+    public struct CountAndAverageSalary
+    {
+        public int CountByRole { get; set; }
+        public double AverageSalary { get; set; }
+
+        public CountAndAverageSalary(int count, double averageSalary)
+        {
+            CountByRole = count;
+
+            AverageSalary = averageSalary;
+        }
+    }
+
     public class Employee
     {
         [Required(AllowEmptyStrings = false)]
@@ -165,7 +178,7 @@ namespace vismaUzd.Controllers
         }
 
 
-        //https://localhost:44371/api/Employee/Values/ByNameStartDateEndDate?name=Ramunas&startDate=2020-10-05&endDate=2025-10-20
+        //https://localhost:44392/api/Employee/Values/ByNameStartDateEndDate?name=Ramunas&startDate=2020-10-05&endDate=2025-10-20
         [Route("api/People/Employee/ByNameStartDateEndDate")]
         [HttpGet]
         public List<Employee> GetByNameStartDateEndDate(string name, string startDate, string endDate)
@@ -194,6 +207,38 @@ namespace vismaUzd.Controllers
             return employees;
         }
 
+
+        //Getting employee count and average salary for particular Role
+        //https://localhost:44392/api/Employee/Values/GettingEmployeeCountAndAverageSalaryForParticularRole?roleStr=Accountant
+        //https://localhost:44392/api/Employee/Values/GettingEmployeeCountAndAverageSalaryForParticularRole?roleStr=Developer
+        [Route("api/People/Values/GettingEmployeeCountAndAverageSalaryForParticularRole")]
+        [HttpGet]
+        public CountAndAverageSalary GettingEmployeeCountAndAverageSalaryForParticularRole(string roleStr)
+        {
+            var employees = new List<Employee>();
+
+            var averageSalary = 0.0;
+
+            var con = new BlogDbContext();
+
+            try
+            {
+                var role = (Role)Enum.Parse(typeof(Role), roleStr);
+
+                employees = con.Employees.Where(x => x.Role == role).ToList();
+
+                if (employees.Count == 0)
+                    throw new Exception($"Employee '{roleStr}' not found");
+
+                averageSalary = employees.Select(x => x.CurrentSalary).Average();
+            }
+            catch (Exception ex)
+            {
+                LoggingException.Log(ex.Message);
+            }
+
+            return new CountAndAverageSalary(employees.Count, averageSalary);
+        }
 
 
 
