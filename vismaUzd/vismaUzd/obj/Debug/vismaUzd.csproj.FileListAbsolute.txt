@@ -83,3 +83,7 @@ C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.csproj.CoreCompileInputs.cach
 C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.csproj.CopyComplete
 C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.dll
 C:\Temp\visma\vismaUzd\vismaUzd\obj\Debug\vismaUzd.pdb
+C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.dll
+C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.SqlServer.dll
+C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.xml
+C:\Temp\visma\vismaUzd\vismaUzd\bin\EntityFramework.SqlServer.xml
