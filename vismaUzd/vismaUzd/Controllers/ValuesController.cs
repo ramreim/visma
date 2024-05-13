@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Linq;
 using System.Web.Http;
 
 namespace vismaUzd.Controllers
@@ -37,10 +38,17 @@ namespace vismaUzd.Controllers
 
     public class ValuesController : ApiController
     {
+        //https://localhost:44392/api/Employee/values
         // GET api/values
-        public IEnumerable<string> Get()
+        [Route("api/Employee/Values")]
+        [HttpGet]
+        public IEnumerable<Employee> Get()
         {
-            return new string[] { "value1", "value2" };
+            BlogDbContext con = new BlogDbContext();
+
+            var employees = con.Employees;
+
+            return employees;
         }
 
         // GET api/values/5
@@ -50,10 +58,29 @@ namespace vismaUzd.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Employee e)
         {
-        }
+            BlogDbContext con = new BlogDbContext();
 
+            var boss = con.Employees.Where(x => x.Id == e.BossId).FirstOrDefault();
+
+            e.Id = Guid.NewGuid();
+
+            var validation = new EmployeeValidation();
+
+            try
+            {
+                validation.Validation(e, boss);
+
+                con.Employees.Add(e);
+
+                con.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                LoggingException.Log(ex.Message);
+            }
+        }
         // PUT api/values/5
         public void Put(int id, [FromBody] string value)
         {
