@@ -76,7 +76,7 @@ namespace vismaUzd.Controllers
             return employees;
         }
 
-        //https://localhost:44371/api/Employee/Values/2280385d-2fb4-4e62-828c-08c2f3ce865f
+        //https://localhost:44392/api/Employee/Values/2280385d-2fb4-4e62-828c-08c2f3ce865f
         // GET api/values/5
         [Route("api/Employee/Values/Boss/{userid:guid}")]
         [HttpGet]
@@ -136,6 +136,31 @@ namespace vismaUzd.Controllers
             con.Employees.AddOrUpdate(e);
 
             con.SaveChanges();
+        }
+
+        //https://localhost:44392/api/People/Values/UpdateSalary?id=2280385d-2fb4-4e62-828c-08c2f3ce865f&salary=150.35
+        // PUT api/values/5
+        //[Route("api/People/Values/{userid:int}")]
+        [Route("api/People/Employee/UpdateSalary")]
+        [HttpPut]
+        public void UpdateJustEmployeeSalary(Guid id, string salary)
+        {
+            try
+            {
+                BlogDbContext con = new BlogDbContext();
+
+                var e = con.Employees.Where(x => x.Id == id).FirstOrDefault();
+
+                e.CurrentSalary = (int)Convert.ToDouble(salary);
+
+                con.Employees.AddOrUpdate(e);
+
+                con.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                LoggingException.Log(ex.Message);
+            }
         }
 
         // DELETE api/values/5
