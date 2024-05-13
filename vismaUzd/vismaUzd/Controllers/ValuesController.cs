@@ -155,7 +155,7 @@ namespace vismaUzd.Controllers
         //https://localhost:44392/api/People/Values/UpdateSalary?id=2280385d-2fb4-4e62-828c-08c2f3ce865f&salary=150.35
         // PUT api/values/5
         //[Route("api/People/Values/{userid:int}")]
-        [Route("api/People/Employee/UpdateSalary")]
+        [Route("api/Employee/UpdateSalary")]
         [HttpPut]
         public void UpdateJustEmployeeSalary(Guid id, string salary)
         {
@@ -165,7 +165,7 @@ namespace vismaUzd.Controllers
 
                 var e = con.Employees.Where(x => x.Id == id).FirstOrDefault();
 
-                e.CurrentSalary = (int)Convert.ToDouble(salary);
+                e.CurrentSalary = Convert.ToDouble(salary);
 
                 con.Employees.AddOrUpdate(e);
 
@@ -177,9 +177,8 @@ namespace vismaUzd.Controllers
             }
         }
 
-
         //https://localhost:44392/api/Employee/Values/ByNameStartDateEndDate?name=Ramunas&startDate=2020-10-05&endDate=2025-10-20
-        [Route("api/People/Employee/ByNameStartDateEndDate")]
+        [Route("api/Employee/ByNameStartDateEndDate")]
         [HttpGet]
         public List<Employee> GetByNameStartDateEndDate(string name, string startDate, string endDate)
         {
@@ -211,7 +210,7 @@ namespace vismaUzd.Controllers
         //Getting employee count and average salary for particular Role
         //https://localhost:44392/api/Employee/Values/GettingEmployeeCountAndAverageSalaryForParticularRole?roleStr=Accountant
         //https://localhost:44392/api/Employee/Values/GettingEmployeeCountAndAverageSalaryForParticularRole?roleStr=Developer
-        [Route("api/People/Values/GettingEmployeeCountAndAverageSalaryForParticularRole")]
+        [Route("api/Values/GettingEmployeeCountAndAverageSalaryForParticularRole")]
         [HttpGet]
         public CountAndAverageSalary GettingEmployeeCountAndAverageSalaryForParticularRole(string roleStr)
         {
@@ -240,11 +239,29 @@ namespace vismaUzd.Controllers
             return new CountAndAverageSalary(employees.Count, averageSalary);
         }
 
-
-
         // DELETE api/values/5
-        public void Delete(int id)
+        [Route("api/Employee/Values/{userid:guid}")]
+        [HttpDelete]
+        public void Delete(Guid userid)
         {
+            BlogDbContext con = new BlogDbContext();
+
+            var del = con.Employees.Where(x => x.Id == userid).FirstOrDefault();
+
+            try
+            {
+                if (del == null)
+                    throw new Exception("Employee by Id not found");
+
+                con.Employees.Remove(del);
+
+                con.SaveChanges();
+            }
+
+            catch (Exception ex)
+            {
+                LoggingException.Log(ex.Message);
+            }
         }
     }
 }
