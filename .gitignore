@@ -15,6 +15,7 @@ bin/*
 
 # Compiled Dynamic libraries
 *.so
+*.suo
 *.dylib
 *.dll
 
