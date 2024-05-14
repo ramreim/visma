@@ -206,7 +206,6 @@ namespace vismaUzd.Controllers
             return employees;
         }
 
-
         //Getting employee count and average salary for particular Role
         //https://localhost:44392/api/Employee/Values/GettingEmployeeCountAndAverageSalaryForParticularRole?roleStr=Accountant
         //https://localhost:44392/api/Employee/Values/GettingEmployeeCountAndAverageSalaryForParticularRole?roleStr=Developer
