@@ -21,7 +21,7 @@ bin/*
 */.suo
 *.dylib
 *.dll
-
+vs
 # Fortran module files
 *.mod
 *.smod
