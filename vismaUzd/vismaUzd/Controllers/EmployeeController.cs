@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Globalization;
@@ -27,31 +26,9 @@ namespace vismaUzd.Controllers
         }
     }
 
-    public class Employee
-    {
-        [Required(AllowEmptyStrings = false)]
-        //[MaxLength(80)]
 
-        public Guid Id { get; set; }
 
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        public DateTime BirthDate { get; set; }
-
-        public DateTime EmploymentDate { get; set; }
-
-        public Guid BossId { get; set; }
-
-        public string HomeAddress { get; set; }
-
-        public double CurrentSalary { get; set; }
-
-        public Role Role { get; set; }
-    }
-
-    public class ValuesController : ApiController
+    public class EmployeeController : ApiController
     {
         //https://localhost:44392/api/Employee/values
         // GET api/values
