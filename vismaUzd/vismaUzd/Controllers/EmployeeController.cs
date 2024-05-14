@@ -26,8 +26,6 @@ namespace vismaUzd.Controllers
         }
     }
 
-
-
     public class EmployeeController : ApiController
     {
         //https://localhost:44392/api/Employee/values
