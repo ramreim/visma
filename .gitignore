@@ -17,6 +17,8 @@ bin/*
 *.so
 *.vs
 *.suo
+*/.vs
+*/.suo
 *.dylib
 *.dll
 
