@@ -17,6 +17,7 @@ bin/*
 *.so
 *.vs
 *.suo
+*/.suo
 */.vs/*
 */.vs/*.suo
 */.suo
